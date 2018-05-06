@@ -1,6 +1,6 @@
 {
   "name": "dictionary-encoding",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Simple binary dictionary compression scheme",
   "main": "index.js",
   "scripts": {

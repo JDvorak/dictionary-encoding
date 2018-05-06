@@ -2,7 +2,7 @@
 [![npm version][2]][3] [![build status][4]][5] [![test coverage][6]][7]
 [![downloads][8]][9] [![js-standard-style][10]][11]
 
-Simple binary dictionary compression scheme.
+Simple binary dictionary compression scheme. It takes a dictionary whose ids are integers, and a string or array of strings to compress according to the dictionary provided. Decomposing strings into parts that may be represented by the dictionary is left to a higher order module which would use this one to manage efficient encoding.
 
 ## Usage
 ```js
@@ -34,11 +34,11 @@ encode(dictionary, ['hello', 'world', ',', 'ya\'ll'], function (err, buffer) {
 ## API
 ### dictionaryEncoding
 
-* .encode(dictionary, data, [cb])
+* encode(dictionary, data, [cb])
 Encode takes a dictionary and swaps each item with the value stored under the dictionary key. This function
-either returns a length prefixed stream of VLQ encoded buffers, or takes a callback which is provided a concatenation of the buffers that would otherwise be streamed.
+either returns a [length prefixed stream][13] of [VLQ][12] encoded buffers, or takes a callback which is provided a concatenation of the buffers that would otherwise be streamed.
 
-* .decode(dictionary, data, [cb])
+* decode(dictionary, data, [cb])
 Encode takes a dictionary and swaps each item with the value stored under the dictionary key. This function
 either returns an object stream of strings, or takes a callback which is provided an array of the strings that would otherwise be streamed.
 
@@ -62,3 +62,5 @@ $ npm install dictionary-encoding
 [9]: https://npmjs.org/package/dictionary-encoding
 [10]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square
 [11]: https://github.com/feross/standard
+[12]: https://en.wikipedia.org/wiki/Variable-length_quantity
+[13]: https://github.com/mafintosh/length-prefixed-stream

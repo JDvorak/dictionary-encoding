@@ -9,18 +9,19 @@ Simple binary dictionary compression scheme. It takes a dictionary whose ids are
 const encode = require('dictionary-encoding').encode
 const decode = require('dictionary-encoding').decode
 
-const dictionary = {
-  '1': 'hello',
-  '2': 'world',
-  '3': 'ya\'ll',
-  '4': ','
-}
 
-const invertedDictionary = {
+const dictionary = {
   'hello': '1',
   'world': '2',
   'ya\'ll': '3',
   ',': '4'
+}
+
+const invertedDictionary = {
+  '1': 'hello',
+  '2': 'world',
+  '3': 'ya\'ll',
+  '4': ','
 }
 
 encode(dictionary, ['hello', 'world', ',', 'ya\'ll'], function (err, buffer) {

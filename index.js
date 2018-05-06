@@ -1,9 +1,6 @@
-var vlqBuffer = require('vlq-buffer')
-var lpstream = require('length-prefixed-stream')
-var through = require('through2')
-
-const OODE = 'Out of dictionary error: data to be encoded is not represented by the dictionary provided.'
-const OODD = 'Out of dictionary error: data to be decoded is not represented by the dictionary provided.'
+const vlqBuffer = require('vlq-buffer')
+const lpstream = require('length-prefixed-stream')
+const through = require('through2')
 
 function encode (dictionary, stringArr, cb) {
   var encode = lpstream.encode()
@@ -66,6 +63,9 @@ function toArray (stream, cb) {
   stream.once('error', (err) => { cb(err); stream.end() })
   stream.once('end', () => cb(null, items))
 }
+
+const OODE = 'Out of dictionary error: data to be encoded is not represented by the dictionary provided.'
+const OODD = 'Out of dictionary error: data to be decoded is not represented by the dictionary provided.'
 
 module.exports = {
   encode: encode,
